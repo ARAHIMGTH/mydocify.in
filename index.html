@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MYDOCIFY | Secure, Offline-First Browser PDF Suite</title>
+    <meta name="google-site-verification" content="0HDLoBsxgFXYsEO-eoVwq9Hu4Ri_nXR9o8P0o1PK8fo" />
+    <meta name="description" content="MYDOCIFY is a 100% private, offline-first client-side browser utility suite to compress, merge, split, rotate, watermark, remove pages, and export PDFs instantly in your browser." />
+    <meta name="keywords" content="MYDOCIFY, pdf compressor, merge pdf online, split pdf, rotate pdf pages, watermark pdf, remove pdf pages, pdf to image, secure pdf editor, offline pdf tools" />
+    
+    <!-- PWA & Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#7c6af0" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MYDOCIFY | Secure, Offline-First Browser PDF Suite" />
+    <meta property="og:description" content="Compress, merge, split, rotate, and watermark PDFs instantly in your browser with 100% privacy." />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="MYDOCIFY | Secure Browser-Based PDF Tools Suite" />
+    <meta property="twitter:description" content="Compress, merge, split, rotate, and watermark PDFs instantly in your browser with 100% privacy." />
+
+    <!-- Schema.org SoftwareApplication Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MYDOCIFY",
+        "operatingSystem": "All",
+        "applicationCategory": "UtilityApplication",
+        "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        },
+        "description": "An offline-first, client-side PDF utility suite for compressing, merging, splitting, rotating, watermarking, removing pages, and exporting PDFs safely inside your browser."
+      }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+      if (window.pdfjsLib) {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

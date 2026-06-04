@@ -1,0 +1,9 @@
+# For search engines to index MYDOCIFY
+User-agent: *
+Allow: /
+
+# Exclude private directories or temporary system variables if any
+Disallow: /api/
+
+# Point to your future XML Sitemap location
+Sitemap: https://mydocify.in/sitemap.xml

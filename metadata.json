@@ -1,0 +1,6 @@
+{
+  "name": "MYDOCIFY | PDF Suite",
+  "description": "An offline-first, client-side PDF utility suite for compressing, merging, splitting, rotating, watermarking, removing pages, and exporting PDFs safely inside your browser.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
