@@ -1,18 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MYDOCIFY | Secure, Offline-First Browser PDF Suite</title>
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4171962220033443"
-crossorigin="anonymous"></script>
-...
-</head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MYDOCIFY | Secure, Offline-First Browser PDF Suite</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4171962220033443"
+     crossorigin="anonymous"></script>
+     
     <meta name="google-site-verification" content="0HDLoBsxgFXYsEO-eoVwq9Hu4Ri_nXR9o8P0o1PK8fo" />
     <meta name="description" content="MYDOCIFY is a 100% private, offline-first client-side browser utility suite to compress, merge, split, rotate, watermark, remove pages, and export PDFs instantly in your browser." />
     <meta name="keywords" content="MYDOCIFY, pdf compressor, merge pdf online, split pdf, rotate pdf pages, watermark pdf, remove pdf pages, pdf to image, secure pdf editor, offline pdf tools" />
@@ -22,6 +18,7 @@ crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" href="/icon.svg" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#7c6af0" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="MYDOCIFY | Secure, Offline-First Browser PDF Suite" />
@@ -49,8 +46,10 @@ crossorigin="anonymous"></script>
         "description": "An offline-first, client-side PDF utility suite for compressing, merging, splitting, rotating, watermarking, removing pages, and exporting PDFs safely inside your browser."
       }
     </script>
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
     <!-- PDF.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
@@ -58,10 +57,47 @@ crossorigin="anonymous"></script>
         window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
       }
     </script>
+    
+    <!-- Crucial Auto-Recovery and Self-Healing Cache Handler -->
+    <script>
+      const forceSelfHealReload = () => {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            for (const registration of registrations) {
+              registration.unregister();
+            }
+          });
+        }
+        if ('caches' in window) {
+          caches.keys().then((keys) => {
+            Promise.all(keys.map((key) => caches.delete(key))).then(() => {
+              window.location.reload(true);
+            });
+          });
+        } else {
+          window.location.reload(true);
+        }
+      };
+
+      window.addEventListener('vite:preloadError', (e) => {
+        console.warn('[MyDocify Auto-Heal] Chunk load failure detected. Triggering self-heal reload...', e);
+        forceSelfHealReload();
+      });
+
+      window.addEventListener('error', (e) => {
+        const target = e.target;
+        if (target && (target.tagName === 'SCRIPT' || target.tagName === 'LINK')) {
+          const url = target.src || target.href;
+          if (url && url.startsWith(window.location.origin) && (url.includes('/assets/') || url.includes('.js') || url.includes('.css'))) {
+            console.warn('[MyDocify Auto-Heal] Missing compiled asset chunk detected:', url);
+            forceSelfHealReload();
+          }
+        }
+      }, true);
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
