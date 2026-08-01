@@ -25,6 +25,7 @@ import ContactPage from './components/Pages/ContactPage';
 import PrivacyPage from './components/Pages/PrivacyPage';
 import TermsPage from './components/Pages/TermsPage';
 import HistoryPage from './components/Pages/HistoryPage';
+import AdBanner from './components/AdBanner';
 import FaqSection from './components/FaqSection';
 import { Tool, HistoryItem, User, HistoryFile } from './types';
 import { auth, analyticsPromise } from './firebase';
